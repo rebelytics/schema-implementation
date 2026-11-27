@@ -30,7 +30,7 @@ Reference file for the `schema-implementation` skill (Eoghan Henn and contributo
 
 This phase is optional but strongly recommended whenever a non-trivial implementation reaches production. Fast, targeted verification catches regressions that would otherwise only surface weeks later via Search Console warnings.
 
-**Scope note:** Phase 5 verifies conformance to this skill's own Phase 2 spec. When the task is verifying a *reported fix* across locales rather than conformance to the spec, run a JSON-LD validation audit instead — it needs the cache-busting gate, population enumeration from the sitemap index / live hreflang set, and the positive control that a spec-conformance pass does not.
+**Scope note:** Phase 5 verifies conformance to this skill's own Phase 2 spec. When the task is verifying a *reported fix* across locales rather than conformance to the spec, run `jsonld-validation-audit` instead — it needs the cache-busting gate, population enumeration from the sitemap index / live hreflang set, and the positive control that a spec-conformance pass does not.
 
 **Two triggers require the full-population sweep before anything is written.** On a
 multi-domain or multi-locale implementation, run §5.1 across every locale and §5.9
@@ -644,8 +644,8 @@ state-dependent field (price, availability).
 The emitted state must also be the page's state: map every availability
 state the shop sells under (supplier stock, pre-order) to its schema value,
 never in-stock-or-not, and build a listing page's `ItemList` from the same
-query as the rendered grid — the audit side of both checks belongs to a
-JSON-LD validation audit.
+query as the rendered grid — the audit side of both checks belongs to
+`jsonld-validation-audit`.
 
 **2. The error report category is not the page type.** A rich-result error
 can be **attributed to one GSC report (e.g. "Product snippets") while

@@ -5,7 +5,7 @@ license: CC-BY-4.0
 metadata:
   author: Eoghan Henn and contributors
   source: https://github.com/rebelytics/schema-implementation
-  version: "1.0.0"
+  version: "1.0.1"
   core_max_lines: "420"
 ---
 
@@ -20,7 +20,7 @@ The methodology is client-agnostic. It works for any website where the goal is c
 licence. You are free to share and adapt this skill for any purpose, provided
 you give appropriate credit to the original author.
 
-**Related audits:** this skill's Phase 5 verifies the live output against the spec designed in Phase 2. When the task is instead verifying a *reported fix* across locales ("fixed for all languages", "deployed everywhere"), run a JSON-LD validation audit, with the claim-verification disciplines this skill does not hold: the cache-busting gate, population enumeration from the sitemap index / live hreflang set, and the positive control. The audit end of breadcrumb work is a breadcrumb navigation audit; this skill handles its ticket end.
+**Related audits:** this skill's Phase 5 verifies the live output against the spec designed in Phase 2. When the task is instead verifying a *reported fix* across locales ("fixed for all languages", "deployed everywhere"), load the published companion `jsonld-validation-audit` (https://github.com/rebelytics/jsonld-validation-audit), which holds the claim-verification disciplines this skill does not: the cache-busting gate, population enumeration from the sitemap index / live hreflang set, and the positive control. The audit end of breadcrumb work is the published companion `breadcrumb-navigation-audit` (https://github.com/rebelytics/breadcrumb-navigation-audit); this skill handles its ticket end.
 
 ---
 
@@ -233,7 +233,7 @@ These apply to every project:
 
 **Load `references/post-deployment-verification.md` before verifying deployed schema, confirming a ticket as done, or diagnosing a Search Console error.** It holds the whole phase:
 
-- Phase preamble — scope note (reported-fix verification goes to a JSON-LD validation audit), the two triggers for a full-population sweep, and the sitewide-ticket template inventory
+- Phase preamble — scope note (reported-fix verification goes to `jsonld-validation-audit`), the two triggers for a full-population sweep, and the sitewide-ticket template inventory
 - Phase 5 Pre-Flight Checklist (Before Sending the Report)
 - 5.1 Cross-Language Verification Pattern
 - 5.2 Audit Finding Categories
